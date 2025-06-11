@@ -5,7 +5,6 @@
 #ifndef PWINDOW_H
 #define PWINDOW_H
 
-#include <Windows.h>
 #include <assert.h>
 
 namespace protx {
@@ -14,11 +13,13 @@ namespace protx {
         PWindow();
         ~PWindow();
 
-        void onDestroy();
-        bool isClosed();
+        void makeCurrentContext();
+
+        void present(bool vsync);
 
     private:
         void* m_handle = nullptr;
+        void *m_context = nullptr;
     };
 } // protx
 

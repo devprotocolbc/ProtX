@@ -7,7 +7,12 @@
 #include "protx/protx/ProtX.h"
 
 int main() {
-    protx::ProtX game;
-    game.run();
+    try {
+        protx::ProtX game;
+        game.run();
+    } catch (const std::exception &e) {
+        std::cout << e.what() << std::endl;
+        return 1;
+    }
     return 0;
 }
