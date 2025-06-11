@@ -5,6 +5,9 @@
 #ifndef PWINDOW_H
 #define PWINDOW_H
 
+#include <Windows.h>
+#include <assert.h>
+
 namespace protx {
     class PWindow {
     public:

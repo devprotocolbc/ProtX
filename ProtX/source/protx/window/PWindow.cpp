@@ -3,8 +3,6 @@
 //
 
 #include "protx/window/PWindow.h"
-#include <Windows.h>
-#include <assert.h>
 
 LRESULT CALLBACK WndProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam) {
     switch (msg) {
