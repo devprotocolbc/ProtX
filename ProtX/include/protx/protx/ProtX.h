@@ -5,22 +5,29 @@
 #ifndef PGAME_H
 #define PGAME_H
 #include <memory>
+#include "protx/window/PWindow.h"
 
 
 namespace protx {
+    class PGraphicsEngine;
     class PWindow;
     class ProtX {
     public:
         ProtX();
-
         ~ProtX();
 
-        void run();
+        virtual void onCreate();
 
+        virtual void onUpdate();
+
+        virtual void onQuit();
+
+        void run();
         void quit();
 
     private:
         bool m_isRunning = true;
+        std::unique_ptr<PGraphicsEngine> m_graphicsEngine;
         std::unique_ptr<PWindow> m_display;
     };
 }

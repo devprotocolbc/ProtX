@@ -4,25 +4,30 @@
 
 #include "protx/protx/ProtX.h"
 
-#include <Windows.h>
-#include "protx/window/PWindow.h"
+#include "protx/graphics/PGraphicsEngine.h"
 
 protx::ProtX::ProtX() {
-    m_display = std::unique_ptr<PWindow>(new PWindow());
+    m_graphicsEngine = std::make_unique<PGraphicsEngine>();
+    m_display = std::make_unique<PWindow>();
+
+    m_display->makeCurrentContext();
 }
 
 protx::ProtX::~ProtX() {
 }
 
-void protx::ProtX::run() {
-    MSG msg;
-    while (m_isRunning && !m_display->isClosed()) {
-        if (PeekMessage(&msg, NULL, NULL, NULL, PM_REMOVE)) {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
-        }
-        Sleep(1);
-    }
+void protx::ProtX::onCreate() {
+    m_graphicsEngine->clear(PVec4(1, 0, 0, 0));
+    m_display->present(false);
+}
+
+void protx::ProtX::onUpdate() {
+    m_graphicsEngine->clear(PVec4(1, 0, 1, 0));
+
+    m_display->present(false);
+}
+
+void protx::ProtX::onQuit() {
 }
 
 void protx::ProtX::quit() {
