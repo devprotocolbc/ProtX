@@ -5,6 +5,8 @@
 #ifndef PGAME_H
 #define PGAME_H
 #include <memory>
+#include <Windows.h>
+#include "protx/window/PWindow.h"
 
 
 namespace protx {

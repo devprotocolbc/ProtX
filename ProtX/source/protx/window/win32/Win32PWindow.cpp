@@ -44,11 +44,11 @@ protx::PWindow::~PWindow() {
     DestroyWindow((HWND)m_handle);
 }
 
-void protx::PWindow::onDestroy() {
+void protx::PWindow::PWindow::onDestroy() {
     m_handle = nullptr;
 }
 
-bool protx::PWindow::isClosed() {
+bool protx::PWindow::PWindow::isClosed() {
     return !m_handle;
 }
 

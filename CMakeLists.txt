@@ -11,5 +11,5 @@ include_directories(ProtX/source)
 file(GLOB_RECURSE SOURCES "ProtX/source/*.cpp")          # DO NOT CHANGE THIS TO A MANUAL LIST .. unless necessary
 
 add_executable(ProtX
-        Game/Main.cpp
+        Main/Main.cpp
         ${SOURCES})
