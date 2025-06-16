@@ -18,10 +18,9 @@ namespace protx {
         };
 
         static void Log(LogLevel level, const char *msg);
-
         static bool Initialize(LogLevel level);
 
-    private: // prevent instantiation so we have a Singleton
+    private:            // prevent instantiation so we have a Singleton
         PLogger(const PLogger &) = delete; //copy constructor method
         PLogger(PLogger &&) = delete; //move constructor method
         PLogger &operator =(const PLogger &) = delete; //copy assignment operator
