@@ -11,8 +11,8 @@ int main() {
         protx::ProtX game;
         game.run();
     } catch (const std::exception &e) {
-        std::cout << e.what() << std::endl;
-        return 1;
+        // std::cout << e.what() << std::endl;
+        return EXIT_FAILURE;
     }
     return 0;
 }

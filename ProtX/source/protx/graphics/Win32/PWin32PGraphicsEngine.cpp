@@ -6,6 +6,7 @@
 
 #include <stdexcept>
 #include "glad/glad_wgl.h"
+#include "protx/core/PLogger.h"
 
 protx::PGraphicsEngine::PGraphicsEngine() {
     WNDCLASSEX wc = {};
@@ -45,10 +46,12 @@ protx::PGraphicsEngine::PGraphicsEngine() {
     wglMakeCurrent(dummyDC, dummyContext);
 
     if (!gladLoadWGL(dummyDC)) {
-        throw std::runtime_error("ProtX - Error - Failed to initialize OpenGL context (WGL)");
+        ProtXLogErrorAndThrow("Failed to initialize OpenGL context (WGL)");
+        //throw std::runtime_error("ProtX - Error - Failed to initialize OpenGL context (WGL)");
     }
-    if (!gladLoadGL()) {
-        throw std::runtime_error("ProtX - Error - Failed to initialize OpenGL context (GL)");
+    if (gladLoadGL()) {
+        ProtXLogErrorAndThrow("Failed to initialize OpenGL context (GL)");
+        //throw std::runtime_error("ProtX - Error - Failed to initialize OpenGL context (GL)");
     }
 
     wglMakeCurrent(dummyDC, nullptr);
