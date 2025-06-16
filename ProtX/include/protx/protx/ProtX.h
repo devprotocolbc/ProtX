@@ -6,15 +6,15 @@
 #define PGAME_H
 #include <memory>
 #include "protx/window/PWindow.h"
+#include "protx/core/PCore.h"
 
 
 namespace protx {
-    class PGraphicsEngine;
-    class PWindow;
     class ProtX {
     public:
         ProtX();
-        ~ProtX();
+
+        virtual ~ProtX();
 
         virtual void onCreate();
 

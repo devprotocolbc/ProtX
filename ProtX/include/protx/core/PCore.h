@@ -5,7 +5,13 @@
 #ifndef PREREQUESITES_H
 #define PREREQUESITES_H
 
+namespace protx {
+    class PGraphicsEngine;
+    class PWindow;
 
-typedef float f32;
+    class PLogger;
+
+    typedef float f32;
+}
 
 #endif //PREREQUESITES_H
